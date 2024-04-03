@@ -57,9 +57,10 @@ button {
     margin: 100px auto 0;
     border-radius: 10px;
     padding: 30px;
-
 }
 .app h1{
+    display: flex;
+    justify-content: space-between;
     font-size: 25px;
     color: #001e4d;
     font-weight: 600;
@@ -111,4 +112,10 @@ button {
 .incorrect
 {
     background: #ff9393;
+}
+.dis{
+    display: block;
+}
+.hidden{
+    display: none;
 }

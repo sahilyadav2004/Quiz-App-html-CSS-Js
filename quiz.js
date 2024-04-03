@@ -115,4 +115,20 @@ nextButton.addEventListener("click",()=>{
         startQuiz();
     }
 })
-startQuiz();
+// startQuiz();
+
+let main = document.body.getElementsByClassName("main")[0];
+let app = document.getElementsByClassName("app")[0];
+console.log(app,main)
+let registerbutton = document.getElementById("register-btn");
+
+
+registerbutton.addEventListener("click",()=>{
+    main.style.display="none";
+    let username = document.body.getElementsByClassName("username")[0];
+    let name=document.getElementById("name");
+    let Name=name.value;
+    username.innerHTML=`user: ${Name}`
+    app.style.display="block";
+    startQuiz();
+})
