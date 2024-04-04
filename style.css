@@ -119,3 +119,9 @@ button {
 .hidden{
     display: none;
 }
+.username{
+    font-size: 15px;
+}
+i{
+    margin-right: 5px;
+}

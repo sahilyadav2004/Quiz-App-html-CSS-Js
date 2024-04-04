@@ -1,38 +1,92 @@
 const questions=[
     {
-        question: "Which is the largest animal in the world?",
+        question: "What does CSS stands for?",
         answer:[
-            {text:"Shark",correct:false},
-            {text:"Blue-Whale",correct:true},
-            {text:"Elephant",correct:false},
-            {text:"Giraffe",correct:false},
+            {text:"Creative Style Sheets",correct:false},
+            {text:"Cascading Style Sheets",correct:true},
+            {text:"Computer Style Sheets",correct:false},
+            {text:"Colorful Style Sheets",correct:false},
         ]
     },
     {
-        question: "Which is the largest animal in the world?",
+        question: "What is the correct CSS syntax?",
         answer:[
-            {text:"Shark",correct:false},
-            {text:"Blue-Whale",correct:true},
-            {text:"Elephant",correct:false},
-            {text:"Giraffe",correct:false},
+            {text:"body:color=black;",correct:false},
+            {text:"body{color:black;}",correct:true},
+            {text:"{body:color:black;}",correct:false},
+            {text:"body-color:black;",correct:false},
         ]
     },
     {
-        question: "Which is the largest animal in the world?",
+        question: "Which of the CSS property represents the order of flex items in the grid container?",
         answer:[
-            {text:"Shark",correct:false},
-            {text:"Blue-Whale",correct:true},
-            {text:"Elephant",correct:false},
-            {text:"Giraffe",correct:false},
+            {text:"float",correct:false},
+            {text:"overflow",correct:false},
+            {text:"order",correct:true},
+            {text:"All of the above",correct:false},
         ]
     },
     {
-        question: "Which is the largest animal in the world?",
+        question: "How do we set the default width of the font in CSS?",
         answer:[
-            {text:"Shark",correct:false},
-            {text:"Blue-Whale",correct:true},
-            {text:"Elephant",correct:false},
-            {text:"Giraffe",correct:false},
+            {text:"text-transform",correct:false},
+            {text:"font-weight",correct:false},
+            {text:"font-valriant",correct:false},
+            {text:"font-strech",correct:true},
+        ]
+    },
+    {
+        question: "Which below function in CSS is used to perform the calculation?",
+        answer:[
+            {text:"cal() function",correct:false},
+            {text:"calculator() function",correct:false},
+            {text:"calc() function",correct:true},
+            {text:"calculate() function",correct:false},
+        ]
+    },
+    {
+        question: "which of the below properties can be used to set the gap between the columns?",
+        answer:[
+            {text:"column-gap",correct:false},
+            {text:"row-gap",correct:false},
+            {text:"gap",correct:false},
+            {text:"All of the above",correct:true},
+        ]
+    },
+    {
+        question: "which of the following property specifies the size of rows in a grid?",
+        answer:[
+            {text:"grid-template-row",correct:true},
+            {text:"grid-template",correct:false},
+            {text:"grid-row",correct:false},
+            {text:"grid-row-start",correct:false},
+        ]
+    },
+    {
+        question: "which property defines in which direction the container wants th stack the flex? ",
+        answer:[
+            {text:"flex-wrap",correct:false},
+            {text:"flex-flow",correct:false},
+            {text:"flex-direction",correct:true},
+            {text:"align-content",correct:false},
+        ]
+    },
+    {
+        question: "what is the value of position property at which the element is positioned based on the user's scroll position?",
+        answer:[
+            {text:"sticky",correct:true},
+            {text:"fixed",correct:false},
+            {text:"static",correct:false},
+            {text:"relative",correct:false},
+        ]
+    },
+    {
+        question: "which animation propery specifies the speed curve of the animation?",
+        answer:[
+            {text:"animation-delay",correct:false},
+            {text:"animation-duration",correct:true},
+            {text:"animation-iteration-count",correct:false},
+            {text:"animation-direction",correct:false},
         ]
     }
 ];
@@ -128,7 +182,7 @@ registerbutton.addEventListener("click",()=>{
     let username = document.body.getElementsByClassName("username")[0];
     let name=document.getElementById("name");
     let Name=name.value;
-    username.innerHTML=`user: ${Name}`
+    username.innerHTML=`<i class="fa-solid fa-2x fa-user-check" style="color: #FFD43B;"></i>    ${Name}`
     app.style.display="block";
     startQuiz();
 })
