@@ -95,7 +95,7 @@ const answerButton=document.getElementById("answer-buttons");
 const nextButton=document.getElementById("next-btn");
 let currentQuestionIndex=0;
 let score=0;
-
+let array=[];
 
 function startQuiz(){
     currentQuestionIndex=0;
@@ -130,26 +130,29 @@ function selectAnswer(e)
 {
     const selectedBtn=e.target;
     const isCorrect=selectedBtn.dataset.correct==="true";
+    selectedBtn.classList.add("selected");
+    array.push(selectedBtn.innerHTML);
     if(isCorrect){
-        selectedBtn.classList.add("correct");
+       //selectedBtn.classList.add("correct");
         score++;
     }
     else{
-        selectedBtn.classList.add("incorrect");
+        //selectedBtn.classList.add("incorrect");
     }
     Array.from(answerButton.children).forEach(button=>{
         if(button.dataset.correct==="true"){
-            button.classList.add("correct")
+            //button.classList.add("correct")
         }
         button.disabled=true;
     });
     nextButton.style.display="block";
 }
+const sd=document.body.getElementsByClassName("score-card")[0];
 function showScore(){
     resetState();
     questionElement.innerHTML=`You scored ${score} out of ${questions.length}!`;
-    nextButton.innerHTML="Play Again";
-    nextButton.style.display="block";
+    sd.style.display="block";
+    scorecard();
 }
 function handleNextButton(){
     currentQuestionIndex++;
@@ -165,9 +168,6 @@ nextButton.addEventListener("click",()=>{
         handleNextButton();
 
     }
-    else{
-        startQuiz();
-    }
 })
 // startQuiz();
 
@@ -175,14 +175,41 @@ let main = document.body.getElementsByClassName("main")[0];
 let app = document.getElementsByClassName("app")[0];
 console.log(app,main)
 let registerbutton = document.getElementById("register-btn");
-
-
 registerbutton.addEventListener("click",()=>{
-    main.style.display="none";
     let username = document.body.getElementsByClassName("username")[0];
     let name=document.getElementById("name");
     let Name=name.value;
+    console.log(Name);
     username.innerHTML=`<i class="fa-solid fa-2x fa-user-check" style="color: #FFD43B;"></i>    ${Name}`
+    main.style.display="none";
     app.style.display="block";
     startQuiz();
 })
+
+startQuiz();
+function scorecard()
+{  
+    currentQuestionIndex=0;
+    while(currentQuestionIndex<questions.length)
+    {
+        let currentQuestion=questions[currentQuestionIndex];
+        let questionNo=currentQuestionIndex+1
+        sd.innerHTML+= `<br><br>`+questionNo +". "+currentQuestion.question+`<br>`;
+        currentQuestion.answer.forEach(answer=>{
+            if(answer.correct)
+            {
+                sd.innerHTML+="The correct ans is:   "+answer.text+'<br>'
+            }
+        }) ;
+        sd.innerHTML+="your selected answer was: "+array[currentQuestionIndex]+`<br><br><hr>`
+        currentQuestionIndex++;
+    }
+    nextButton.style.display="block"
+    nextButton.innerHTML="PLAY AGAIN";
+    nextButton.addEventListener("click",()=>{
+        sd.innerHTML="";
+        sd.style.display="none";
+        startQuiz();
+    })
+
+}

@@ -6,7 +6,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: auto;
 }
 .main {
     background-color: #ffffff;
@@ -57,6 +57,7 @@ button {
     margin: 100px auto 0;
     border-radius: 10px;
     padding: 30px;
+    height:auto;
 }
 .app h1{
     display: flex;
@@ -106,6 +107,9 @@ button {
     display: block;
     display: none;
 }
+.selected{
+    background-color:skyblue;
+}
 .correct{
     background: #9aeabc;
 }
@@ -124,4 +128,7 @@ button {
 }
 i{
     margin-right: 5px;
+}
+.score-card{
+    position: relative;
 }
